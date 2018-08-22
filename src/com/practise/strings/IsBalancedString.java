@@ -1,3 +1,4 @@
+package com.practise.strings;
 import java.util.Stack;
 
 public class IsBalancedString {

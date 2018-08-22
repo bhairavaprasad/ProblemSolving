@@ -1,3 +1,4 @@
+package com.practise.bitwise;
 public class BitOperators
 {
 	public static void main(String[] args)

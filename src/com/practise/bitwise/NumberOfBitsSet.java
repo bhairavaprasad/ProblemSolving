@@ -1,3 +1,4 @@
+package com.practise.bitwise;
 
 public class NumberOfBitsSet {
 

@@ -1,5 +1,5 @@
-public class ReverseLinkedList {
-
+package com.pracitse.linkedlists;
+public class RecursiveReverseLinkedList {
 	static class LinkedListNode {
 		int val;
 		LinkedListNode next;
@@ -7,28 +7,24 @@ public class ReverseLinkedList {
 		public LinkedListNode(int val) {
 			this.val = val;
 		}
+
+		@Override
+		public String toString() {
+			return Integer.toString(this.val);
+		}
 	}
 
-	public static LinkedListNode reverse_iterative(LinkedListNode head) {
-		// no need to reverse if head is null
-		// or there is only 1 node.
+	public static LinkedListNode reverse_recursive(LinkedListNode head) {
+		// no need to reverse if head is
+		// null or there is only 1 node.
 		if (head == null || head.next == null) {
 			return head;
 		}
 
-		LinkedListNode list_to_do = head.next;
-		LinkedListNode reversed_list = head;
+		LinkedListNode reversed_list = reverse_recursive(head.next);
 
-		reversed_list.next = null;
-
-		while (list_to_do != null) {
-			LinkedListNode temp = list_to_do;
-			list_to_do = list_to_do.next;
-
-			temp.next = reversed_list;
-			reversed_list = temp;
-		}
-
+		head.next.next = head;
+		head.next = null;
 		return reversed_list;
 	}
 
@@ -51,8 +47,9 @@ public class ReverseLinkedList {
 		System.out.print("Original: ");
 		display(list_head);
 
-		list_head = reverse_iterative(list_head);
-		System.out.print("After Reverse (Iterative):");
+		list_head = reverse_recursive(list_head);
+		System.out.print(" After Reverse (Recursive):");
 		display(list_head);
 	}
+
 }

@@ -1,3 +1,4 @@
+package com.practise.arrays;
 import java.util.Arrays;
 
 public class MergeTwoSortedArrays {
